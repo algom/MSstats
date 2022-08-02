@@ -5,7 +5,6 @@
 #' @param save_fitted_models logical, if TRUE, fitted models will be added to
 #' the output.
 #' @param log_base base of the logarithm used in dataProcess.
-#' @param padjust Multiple hypothesis testing adjust method. Accepts any option from p.adjust function. Default is "BH"
 #' @inheritParams .documentFunction
 #'
 #' @details
@@ -109,6 +108,7 @@ MSstatsPrepareForGroupComparison = function(summarization_output) {
 #' @param save_fitted_models if TRUE, fitted models will be included in the output
 #' @param repeated logical, output of checkRepeatedDesign function
 #' @param samples_info data.table, output of getSamplesInfo function
+#' @param padjust Multiple hypothesis testing adjust method. Accepts any option from p.adjust function. Default is "BH"
 #' 
 #' @importFrom utils txtProgressBar setTxtProgressBar
 #' 
@@ -156,6 +156,7 @@ MSstatsGroupComparison = function(summarized_list, contrast_matrix,
 #' @param input output of MSstatsGroupComparison function
 #' @param summarization_output output of dataProcess function
 #' @param log_base base of the logarithm used in fold-change calculation
+#' @param padjust Multiple hypothesis testing adjust method. Accepts any option from p.adjust function. Default is "BH"
 #' 
 #' @importFrom stats p.adjust
 #' 
