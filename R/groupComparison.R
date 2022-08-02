@@ -44,7 +44,8 @@
 groupComparison = function(contrast.matrix, data, 
                            save_fitted_models = TRUE, log_base = 2,
                            use_log_file = TRUE, append = FALSE, 
-                           verbose = TRUE, log_file_path = NULL
+                           verbose = TRUE, log_file_path = NULL,
+                           padjust = "BH"
 ) {
     MSstatsConvert::MSstatsLogsSettings(use_log_file, append, verbose, 
                                         log_file_path, 
@@ -185,7 +186,7 @@ MSstatsGroupComparisonOutput = function(input, summarization_output, log_base = 
     comparisons = lapply(input, function(x) x[[2]])
     fitted_models = lapply(input, function(x) x[[3]])
     comparisons = data.table::rbindlist(comparisons, fill = TRUE)
-    comparisons[, adj.pvalue := p.adjust(pvalue, method = "BH"),
+    comparisons[, adj.pvalue := p.adjust(pvalue, method = padjust),
                 by = "Label"]
     logFC_colname = paste0("log", log_base, "FC")
     comparisons[, adj.pvalue := ifelse(!is.na(issue) & 
