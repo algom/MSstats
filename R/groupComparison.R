@@ -5,6 +5,7 @@
 #' @param save_fitted_models logical, if TRUE, fitted models will be added to
 #' the output.
 #' @param log_base base of the logarithm used in dataProcess.
+#' @param padjust Multiple hypothesis testing adjust method. Accepts any option from p.adjust function. Default is "BH"
 #' @inheritParams .documentFunction
 #'
 #' @details
