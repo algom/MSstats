@@ -68,7 +68,7 @@ groupComparison = function(contrast.matrix, data,
                             "== Comparisons for all proteins are done.")
     getOption("MSstatsMsg")("INFO",
                             " == Comparisons for all proteins are done.")
-    MSstatsGroupComparisonOutput(testing_results, data, log_base)
+    MSstatsGroupComparisonOutput(testing_results, data, log_base, padjust)
 }
 
 
@@ -179,7 +179,7 @@ MSstatsGroupComparison = function(summarized_list, contrast_matrix,
 #'                                                       QuantData)
 #' group_comparison_final[["ComparisonResult"]] 
 #'                                                     
-MSstatsGroupComparisonOutput = function(input, summarization_output, log_base = 2) {
+MSstatsGroupComparisonOutput = function(input, summarization_output, log_base = 2, padjust = "BH") {
     adj.pvalue = pvalue = issue = NULL
     
     has_imputed = is.element("NumImputedFeature", colnames(summarization_output$ProteinLevelData))
