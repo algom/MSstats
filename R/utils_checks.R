@@ -224,7 +224,7 @@ setMethod(".checkDataValidity", "MSstatsValidated", .prepareForDataProcess)
     data.table::setnames(
         input, c("PROTEINNAME", "ISOTOPELABELTYPE", "CONDITION", "BIOREPLICATE"), 
         c("PROTEIN", "LABEL", "GROUP_ORIGINAL", "SUBJECT_ORIGINAL"),
-        skip_absent = TRUE)
+        skip_absent = TRUE, allow.cartesian=TRUE)
     
     input[, FEATURE := paste(PEPTIDE, TRANSITION, sep = "_")]
     input[, GROUP := ifelse(LABEL == "L", GROUP_ORIGINAL, "0")]
