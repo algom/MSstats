@@ -330,7 +330,7 @@ MSstatsMergeFractions = function(input) {
                 
                 input = merge(input, match_runs,
                               by = c("GROUP_ORIGINAL", "SUBJECT_ORIGINAL"),
-                              all.x = TRUE, allow.cartesian=TRUE)
+                              all.x = TRUE)
                 select_fraction = input[!is.na(ABUNDANCE) & input$ABUNDANCE > 0,
                                         list(ncount = .N),
                                         by = c("FEATURE", "FRACTION")]
